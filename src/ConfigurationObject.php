@@ -20,7 +20,8 @@ class ConfigurationObject {
    * Get property value
    */
   public function get($key = null) {
-    if (is_null($key) || !property_exists($this->data, $key)) {
+    if (is_null($key) || is_null($this->data)
+      || !property_exists($this->data, $key)) {
       return null;
     }
     if (is_object($this->data->$key)) {
