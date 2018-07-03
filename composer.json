@@ -1,5 +1,5 @@
 {
-  "name": "ludovicm67/php-laravel-multidomain",
+  "name": "ludovicm67/laravel-multidomain",
   "description": "",
   "require": {
     "symfony/yaml": "^4.1"
