@@ -35,10 +35,9 @@ class Configuration {
     $this->configFile = $filename;
 
     // get configuration values
-    $configValues = json_decode(json_encode(
+    $this->config = json_decode(json_encode(
         Yaml::parseFile($filename)
     ));
-    $this->config = $configValues;
   }
 
   /**
@@ -90,7 +89,7 @@ class Configuration {
    * @return object global configuration
    */
   public function get() {
-    return $this->$config;
+    return $this->config;
   }
 
   /**
