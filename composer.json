@@ -1,0 +1,19 @@
+{
+  "name": "ludovicm67/php-laravel-multidomain",
+  "description": "",
+  "require": {
+    "symfony/yaml": "^4.1"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ludovicm67",
+      "email": "ludovicmuller1@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ludovicm67\\Laravel\\Multidomain\\": "src/"
+    }
+  }
+}
