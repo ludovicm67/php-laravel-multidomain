@@ -3,6 +3,7 @@
 namespace ludovicm67\Laravel\Multidomain;
 
 use \Symfony\Component\Yaml\Yaml;
+use \ludovicm67\Laravel\Multidomain\ConfigurationObject;
 use \ludovicm67\Laravel\Multidomain\Exception\MultidomainException;
 
 class Configuration {
@@ -89,7 +90,7 @@ class Configuration {
    * @return object global configuration
    */
   public function get() {
-    return $this->config;
+    return new ConfigurationObject($this->config);
   }
 
   /**
@@ -97,6 +98,6 @@ class Configuration {
    * @return object current domain configuration
    */
   public function getDomain() {
-    return $this->domainConfig;
+    return new ConfigurationObject($this->domainConfig);
   }
 }
