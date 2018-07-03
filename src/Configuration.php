@@ -15,10 +15,10 @@ class Configuration {
    * The contructor, called only once!
    */
   private function __construct($configFile) {
-    $configValues = $this->parseFile($configFile);
+    $this->parseFile($configFile);
 
     // if we are in cli, do nothing more
-    if (!isset($_SERVER) || !isset($_SERVER['HOST'])) {
+    if (!isset($_SERVER) || !isset($_SERVER['HTTP_HOST'])) {
       return;
     }
 
@@ -39,8 +39,6 @@ class Configuration {
         Yaml::parseFile($filename)
     ));
     $this->config = $configValues;
-
-    return $configValues;
   }
 
   /**
@@ -78,6 +76,7 @@ class Configuration {
 
   /**
    * Get the unique instance of this class
+   * @return Configuration unique instance
    */
   public static function getInstance($configFile) {
     if (is_null(static::$instance)) {
@@ -88,6 +87,7 @@ class Configuration {
 
   /**
    * Returns all the configuration
+   * @return object global configuration
    */
   public function get() {
     return $this->$config;
@@ -95,6 +95,7 @@ class Configuration {
 
   /**
    * Returns the configuration for the domain (or null if not found)
+   * @return object current domain configuration
    */
   public function getDomain() {
     return $this->domainConfig;
