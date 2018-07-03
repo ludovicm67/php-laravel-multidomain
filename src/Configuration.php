@@ -29,7 +29,7 @@ class Configuration {
    * Parse file and fill properties
    */
   private function parseFile($filename) {
-    if (!file_exists($filename)) {
+    if (is_null($filename) || !file_exists($filename)) {
       throw new MultidomainException('Missing config.yml file.');
     }
     $this->configFile = $filename;
@@ -78,7 +78,7 @@ class Configuration {
    * Get the unique instance of this class
    * @return Configuration unique instance
    */
-  public static function getInstance($configFile) {
+  public static function getInstance($configFile = null) {
     if (is_null(static::$instance)) {
       static::$instance = new static($configFile);
     }
