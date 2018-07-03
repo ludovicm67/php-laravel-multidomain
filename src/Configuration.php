@@ -64,7 +64,7 @@ class Configuration {
         die();
       }
     }
-    $this->domainConfig = $configValues->supported_domains->$askedHost;
+    $this->domainConfig = $this->config->supported_domains->$askedHost;
   }
 
   /**
