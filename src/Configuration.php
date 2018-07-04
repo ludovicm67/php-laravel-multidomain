@@ -47,7 +47,7 @@ class Configuration {
   private function fetchCurrentDomainConfiguration() {
     // are some supported domains defined?
     if (!isset($this->config->supported_domains) ||
-      count($this->config->supported_domains) <= 0) {
+      empty($this->config->supported_domains)) {
       throw new MultidomainException(
         'No supported domains defined in config.yml file'
       );
