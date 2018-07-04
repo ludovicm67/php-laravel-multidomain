@@ -3,7 +3,8 @@ Add multi-domain support in Laravel
 
 ## Let's get started
 
-First of all, include this library into your Laravel projet dependencies.
+First of all, include this library into your Laravel projet dependencies,
+using the following command: `composer require ludovicm67/laravel-multidomain`.
 
 Create a file called `config.yml` at the root of your project, with something
 like:
@@ -98,6 +99,10 @@ $config = Configuration::getInstance();
 $globalConf = $config->get();
 $domainConf = $config->getDomain();
 $databaseConfiguration['connections'] = []; // empty array
+$databaseConfiguration['connections']['mysql'] = [
+  'driver' => 'mysql',
+  'database' => ''
+]; // default to prevent some errors
 
 // add default database connection if we have a domain
 if (!is_null($domainConf)) {
