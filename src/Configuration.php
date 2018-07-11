@@ -59,7 +59,7 @@ class Configuration {
     $hostWithoutApi = null;
 
     if (substr($str, 0, 4) == 'api.') { // if starts with 'api.'
-      $hostWithoutApi = substr($str, 4); // remove the 'api.' prefix
+      $hostWithoutApi = substr($host, 4); // remove the 'api.' prefix
     }
 
     // check if host is defined in configuration file
