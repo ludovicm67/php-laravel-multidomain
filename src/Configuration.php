@@ -58,7 +58,7 @@ class Configuration {
     $host = explode(':', $_SERVER['HTTP_HOST'])[0];
     $hostWithoutApi = null;
 
-    if (substr($str, 0, 4) == 'api.') { // if starts with 'api.'
+    if (substr($host, 0, 4) == 'api.') { // if starts with 'api.'
       $hostWithoutApi = substr($host, 4); // remove the 'api.' prefix
     }
 
