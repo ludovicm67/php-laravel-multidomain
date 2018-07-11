@@ -52,10 +52,30 @@ class Configuration {
         'No supported domains defined in config.yml file'
       );
     }
-    $askedHost = explode(':', $_SERVER['HTTP_HOST'])[0];
+
+    $askedHost = null;
+
+    $host = explode(':', $_SERVER['HTTP_HOST'])[0];
+    $hostWithoutApi = null;
+
+    if (substr($str, 0, 4) == 'api.') { // if starts with 'api.'
+      $hostWithoutApi = substr($str, 4); // remove the 'api.' prefix
+    }
 
     // check if host is defined in configuration file
-    if (!property_exists($this->config->supported_domains, $askedHost)) {
+    if (property_exists($this->config->supported_domains, $host)) {
+      $askedHost = $host;
+    } else if (
+      !is_null($hostWithoutApi) &&
+      property_exists($this->config->supported_domains, $hostWithoutApi)
+    ) {
+      $askedHost = $hostWithoutApi;
+    }
+
+    if (
+      is_null($askedHost) ||
+      !property_exists($this->config->supported_domains, $askedHost)
+    ) {
       if (!isset($this->config->fallback_url) ||
         empty($this->config->fallback_url)) {
         throw new Exception('This domain is not configured for the moment.');
@@ -64,6 +84,7 @@ class Configuration {
         die();
       }
     }
+
     $this->domainConfig = $this->config->supported_domains->$askedHost;
   }
 
