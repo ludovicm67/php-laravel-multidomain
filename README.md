@@ -4,7 +4,11 @@ Add multi-domain support in Laravel
 ## Let's get started
 
 First of all, include this library into your Laravel projet dependencies,
-using the following command: `composer require ludovicm67/laravel-multidomain`.
+using the following command:
+
+```sh
+composer require ludovicm67/laravel-multidomain`
+```
 
 Create a file called `config.yml` at the root of your project, with something
 like:
@@ -30,6 +34,10 @@ supported_domains:
 
 If the current hostname is not in the `supported_domains` list, the app will
 redirect to the `fallback_url`.
+
+One special case: if the asked domain is starting with `api.` and if in the
+configuration file there are only a version without the `api.`, this last
+one will be used.
 
 You can add all properties as you wish; here we will for example see how to
 have a different database for each domain.
