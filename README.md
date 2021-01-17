@@ -1,17 +1,14 @@
-Add multi-domain support in Laravel
-===================================
+# Add multi-domain support in Laravel
 
 ## Let's get started
 
-First of all, include this library into your Laravel projet dependencies,
-using the following command:
+First of all, include this library into your Laravel projet dependencies, using the following command:
 
 ```sh
 composer require ludovicm67/laravel-multidomain`
 ```
 
-Create a file called `config.yml` at the root of your project, with something
-like:
+Create a file called `config.yml` at the root of your project, with something like:
 
 ```yml
 fallback_url: http://localhost/
@@ -23,7 +20,7 @@ supported_domains:
       username: root
       password:
       database: db
-  amazing.dev:
+  amazing.localhost:
     site_name: Amazing!
     database:
       hostname: localhost
@@ -32,18 +29,13 @@ supported_domains:
       database: amazing
 ```
 
-If the current hostname is not in the `supported_domains` list, the app will
-redirect to the `fallback_url`.
+If the current hostname is not in the `supported_domains` list, the app will redirect to the `fallback_url`.
 
-One special case: if the asked domain is starting with `api.` and if in the
-configuration file there are only a version without the `api.`, this last
-one will be used.
+One special case: if the asked domain is starting with `api.` and if in the configuration file there are only a version without the `api.`, this last one will be used.
 
-You can add all properties as you wish; here we will for example see how to
-have a different database for each domain.
+You can add all properties as you wish; here we will for example see how to have a different database for each domain.
 
-To get started, update the `bootstrap/app.php` file to load the configuration,
-as follow:
+To get started, update the `bootstrap/app.php` file to load the configuration, as follow:
 
 ```php
 <?php
@@ -61,8 +53,7 @@ $app = new Illuminate\Foundation\Application(
 // ... the rest of the file will be the same so keep it
 ```
 
-If you want to have access to some properties, you can now add everywhere you
-want the following:
+If you want to have access to some properties, you can now add everywhere you want the following:
 
 ```php
 <?php
@@ -76,9 +67,7 @@ $config->get(); // to get access to the whole configuration
 $config->domain(); // to get access to the current domain configuration
 ```
 
-In our example, where we wanted to have a specific database configuration
-for each domain, you just have to update your `config/database.php` file, to
-make it similar to something like:
+In our example, where we wanted to have a specific database configuration for each domain, you just have to update your `config/database.php` file, to make it similar to something like:
 
 ```php
 <?php
@@ -160,7 +149,6 @@ if (!empty($supportedDomains)) {
 }
 
 return $databaseConfiguration;
-
 ```
 
 And to run migrations, just run the following command:
@@ -173,7 +161,7 @@ In our example, it will be:
 
 ```sh
 php artisan migrate --database=localhost
-php artisan migrate --database=amazing.dev
+php artisan migrate --database=amazing.localhost
 ```
 
 And that's it! :wink:
