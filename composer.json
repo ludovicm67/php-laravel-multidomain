@@ -16,5 +16,8 @@
     "psr-4": {
       "ludovicm67\\Laravel\\Multidomain\\": "src/"
     }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10"
   }
 }
