@@ -1,6 +1,6 @@
 {
   "name": "ludovicm67/laravel-multidomain",
-  "description": "",
+  "description": "Dynamic Laravel configuration depending of the domain",
   "require": {
     "symfony/yaml": "^6.2"
   },
@@ -8,7 +8,8 @@
   "authors": [
     {
       "name": "ludovicm67",
-      "email": "ludovicmuller1@gmail.com"
+      "email": "ludovicmuller1@gmail.com",
+      "homepage": "https://ludovic-muller.fr/"
     }
   ],
   "autoload": {
