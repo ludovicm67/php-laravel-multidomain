@@ -2,7 +2,7 @@
   "name": "ludovicm67/laravel-multidomain",
   "description": "",
   "require": {
-    "symfony/yaml": "^4.1"
+    "symfony/yaml": "^6.2"
   },
   "license": "MIT",
   "authors": [
