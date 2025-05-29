@@ -2,7 +2,7 @@
   "name": "ludovicm67/laravel-multidomain",
   "description": "Dynamic Laravel configuration depending of the domain",
   "require": {
-    "symfony/yaml": "^6.2"
+    "symfony/yaml": "^7.3"
   },
   "license": "MIT",
   "authors": [

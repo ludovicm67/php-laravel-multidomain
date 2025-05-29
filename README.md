@@ -5,12 +5,12 @@
 First of all, include this library into your Laravel projet dependencies, using the following command:
 
 ```sh
-composer require ludovicm67/laravel-multidomain`
+composer require ludovicm67/laravel-multidomain
 ```
 
-Create a file called `config.yml` at the root of your project, with something like:
+Create a file called `config.yaml` at the root of your project, with something like:
 
-```yml
+```yaml
 fallback_url: http://localhost/
 supported_domains:
   localhost:
@@ -47,7 +47,7 @@ $app = new Illuminate\Foundation\Application(
 
 // load all required configuration for multi domain support
 \ludovicm67\Laravel\Multidomain\Configuration::getInstance(
-    base_path('config.yml')
+    base_path('config.yaml')
 );
 
 // ... the rest of the file will be the same so keep it

@@ -1,0 +1,16 @@
+fallback_url: http://localhost/
+supported_domains:
+  localhost:
+    site_name: Localhost
+    database:
+      hostname: localhost
+      username: root
+      password:
+      database: db
+  amazing.localhost:
+    site_name: Amazing!
+    database:
+      hostname: localhost
+      username: amazing
+      password: wow
+      database: amazing

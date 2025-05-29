@@ -31,7 +31,7 @@ class Configuration {
    */
   private function parseFile($filename) {
     if (is_null($filename) || !file_exists($filename)) {
-      throw new MultidomainException('Missing config.yml file.');
+      throw new MultidomainException('Missing config.yaml file.');
     }
     $this->configFile = $filename;
 
@@ -49,7 +49,7 @@ class Configuration {
     if (!isset($this->config->supported_domains) ||
       empty($this->config->supported_domains)) {
       throw new MultidomainException(
-        'No supported domains defined in config.yml file'
+        'No supported domains defined in config.yaml file'
       );
     }
 
