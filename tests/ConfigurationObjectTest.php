@@ -49,4 +49,15 @@ final class ConfigurationObjectTest extends TestCase {
     ]);
     $this->assertEquals(null, $config->get('some-random-key'));
   }
+
+  public function testGetSubObject(): void {
+    $obj = (object) [
+      'localhost' => (object) [
+        'site_name' => 'Localhost',
+      ],
+    ];
+
+    $config = new ConfigurationObject($obj);
+    $this->assertEquals(new ConfigurationObject($obj->localhost), $config->get('localhost'));
+  }
 }
