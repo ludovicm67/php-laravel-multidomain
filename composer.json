@@ -7,7 +7,7 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "ludovicm67",
+      "name": "Ludovic Muller",
       "email": "ludovicmuller1@gmail.com",
       "homepage": "https://ludovic-muller.fr/"
     }
@@ -18,6 +18,6 @@
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "^10"
+    "phpunit/phpunit": "^12"
   }
 }
